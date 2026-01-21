@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intuitionsraum - Louisa</title>
+    
+    <style>
+        /* ========================================
+           COLOR SCHEME - Ändern Sie hier die Farben
+           ======================================== */
+        :root {
+            --primary-color: #05197b;        /* Hauptfarbe - Dunkelblau */
+            --secondary-color: #c2b59b;      /* Sekundärfarbe - Beige/Sand */
+            --accent-color: #03113d;         /* Akzentfarbe - Noch dunkleres Blau */
+            --background-color: #F8F9F7;     /* Hintergrundfarbe */
+            --text-color: #333333;           /* Textfarbe */
+            --text-light: #666666;           /* Helle Textfarbe */
+            --white: #FFFFFF;                /* Weiß */
+        }
+        
+        /* ========================================
+           GRUNDLEGENDES STYLING
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        /* ========================================
+           HEADER / NAVIGATION
+           ======================================== */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* ========================================
+           CONTAINER & SECTIONS
+           ======================================== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), #bbddfd);
+            color: var(--white);
+            margin-bottom: 0;
+        }
+        
+        .hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        /* ========================================
+           KOSTEN BOX
+           ======================================== */
+        .kosten-box {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .kosten-box h3 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .kosten-box p {
+            color: var(--white);
+            text-align: center;
+        }
+        
+        /* ========================================
+           HINWEIS BOX
+           ======================================== */
+        .hinweis-box {
+            background-color: #FFF9E6;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        /* ========================================
+           KONTAKT SECTION
+           ======================================== */
+        .kontakt {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .kontakt a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .kontakt a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Intuitionsraum</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#ueber-mich">Über mich</a></li>
+                <li><a href="#kosten">Kosten</a></li>
+                <li><a href="#hinweise">Hinweise</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Willkommen im Intuitionsraum</h1>
+        <p>Ein Raum, in dem alles wachsen darf, was schon in dir liegt.</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Willkommen Section -->
+        <section>
+            <p>Manchmal öffnen sich Türen schneller, als eine Website fertig werden kann. Diese Seite ist daher eine Übergangslösung – meine ausführliche Homepage entsteht gerade. Hier findest du eine kurze Orientierung zu mir und meiner Arbeit. Spüre, ob sich eine Begleitung für dich stimmig anfühlt.</p>
+            
+            <p>Der Intuitionsraum ist ein Raum, in dem alles wachsen darf, was schon in dir liegt. Ein Ort, an dem du langsamer werden, spüren und entdecken kannst, wer du wirklich bist.</p>
+            
+            <p>Meine Begleitung schafft einen Gegenraum – frei von Leistungsdruck, Vergleichen und Erwartungen. Ich begleite dich achtsam, mit Präsenz und Wertschätzung, unterstützt durch kleine Übungen, die deine Selbstwahrnehmung vertiefen.</p>
+        </section>
+
+        <!-- Über mich Section -->
+        <section id="ueber-mich">
+            <h2>Über mich</h2>
+            <p>Ich bin Louisa, Jahrgang 1986, aufgewachsen in einem Mehrgenerationenhaushalt, in dem meine (Groß-)Familie einen handwerklichen Betrieb führte.</p>
+            
+            <p>2009 bin ich für das Psychologie-Studium nach Trier gekommen und habe seit über einem Jahrzehnt Menschen psychosozial begleitet – mit und ohne Diagnosen, alle mit dem gemeinsamen Wunsch, wieder Kontakt zu sich selbst zu finden.</p>
+        </section>
+
+        <!-- Kosten Section -->
+        <section id="kosten">
+            <h2>Kosten</h2>
+            <div class="kosten-box">
+                <h3>100 € für 60 Minuten</h3>
+            </div>
+            <p>Jede Begleitung ist ein gemeinsamer Prozess. Der Energieausgleich würdigt die Zeit, Präsenz und Tiefe, die wir in unseren Begegnungen miteinander teilen.</p>
+        </section>
+
+        <!-- Wichtige Hinweise Section -->
+        <section id="hinweise">
+            <h2>Wichtige Hinweise</h2>
+            <div class="hinweis-box">
+                <p><strong>Meine Begleitung ersetzt keine ärztliche, psychiatrische oder psychotherapeutische Behandlung.</strong></p>
+                <p>Meine Begleitung hat einen unterstützenden, stabilisierenden und wohltuenden Charakter. Sie kann neue Perspektiven eröffnen und zur Selbstwahrnehmung beitragen, ersetzt jedoch keine medizinische oder psychotherapeutische Versorgung.</p>
+            </div>
+        </section>
+
+        <!-- Kontakt Section -->
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+            <div class="kontakt">
+                <p><strong>Louisa Breyer</strong></p>
+                
+                <p>Für den Erstkontakt schreibe mir bitte eine E-Mail und nenne zwei bis drei Zeitfenster, in denen ich dich zurückrufen kann. Ich melde mich mit unterdrückter Nummer.</p>
+                
+                <p><strong>Der Intuitionsraum befindet sich noch im Aufbau. Erste Termine können ab Februar 2026 vereinbart werden.</strong></p>
+                
+                <p>E-Mail: <a href="mailto:Intuitionsraum@sags-per-mail.de">Intuitionsraum@sags-per-mail.de</a></p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Intuitionsraum - Louisa Breyer</p>
+    </footer>
+</body>
+</html>

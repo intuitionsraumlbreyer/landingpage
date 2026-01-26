@@ -79,6 +79,34 @@
             color: var(--primary-color);
         }
         
+        /* Burger Menu */
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        
+        .burger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+        
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .burger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
         /* ========================================
            CONTAINER & SECTIONS
            ======================================== */
@@ -202,14 +230,30 @@
            RESPONSIVE DESIGN
            ======================================== */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                text-align: center;
+            .burger {
+                display: flex;
             }
             
             nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
                 margin-top: 1rem;
-                justify-content: center;
+                text-align: center;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                padding: 0.8rem 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
             }
             
             .hero h1 {
@@ -230,17 +274,16 @@
         }
         
         @media (max-width: 480px) {
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
             .hero {
                 padding: 3rem 1rem;
             }
             
             .hero h1 {
                 font-size: 1.8rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -250,12 +293,17 @@
     <header>
         <nav>
             <div class="logo">Intuitionsraum</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#ueber-mich">Über mich</a></li>
-                <li><a href="#kosten">Kosten</a></li>
-                <li><a href="#hinweise">Hinweise</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
+            <div class="burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#ueber-mich" onclick="closeMenu()">Über mich</a></li>
+                <li><a href="#kosten" onclick="closeMenu()">Kosten</a></li>
+                <li><a href="#hinweise" onclick="closeMenu()">Hinweise</a></li>
+                <li><a href="#kontakt" onclick="closeMenu()">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -322,5 +370,21 @@
     <footer>
         <p>&copy; 2026 Intuitionsraum - Louisa Breyer</p>
     </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            const burger = document.querySelector('.burger');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+        }
+        
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            const burger = document.querySelector('.burger');
+            menu.classList.remove('active');
+            burger.classList.remove('active');
+        }
+    </script>
 </body>
 </html>

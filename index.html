@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intuitionsraum - Louisa Breyer</title>
-    
+
     <style>
         /* ========================================
            COLOR SCHEME - Ändern Sie hier die Farben
@@ -18,7 +18,7 @@
             --text-light: #666666;           /* Helle Textfarbe */
             --white: #FFFFFF;                /* Weiß */
         }
-        
+
         /* ========================================
            GRUNDLEGENDES STYLING
            ======================================== */
@@ -27,14 +27,18 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Georgia', serif;
             line-height: 1.7;
             color: var(--text-color);
             background-color: var(--background-color);
         }
-        
+
         /* ========================================
            HEADER / NAVIGATION
            ======================================== */
@@ -45,7 +49,7 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         nav {
             max-width: 1200px;
             margin: 0 auto;
@@ -55,36 +59,37 @@
             align-items: center;
             flex-wrap: wrap;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary-color);
         }
-        
+
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            justify-content: flex-end;
         }
-        
+
         nav a {
             text-decoration: none;
             color: var(--text-color);
             transition: color 0.3s;
             position: relative;
         }
-        
+
         nav a:hover {
             color: var(--primary-color);
         }
-        
+
         nav a.active {
             color: var(--primary-color);
             font-weight: bold;
         }
-        
+
         nav a.active::after {
             content: '';
             position: absolute;
@@ -95,35 +100,11 @@
             background-color: var(--secondary-color);
             border-radius: 2px;
         }
-        
-        /* Burger Menu */
-        .burger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
+
+        nav ul li {
+            white-space: nowrap;
         }
-        
-        .burger span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--primary-color);
-            transition: all 0.3s;
-            border-radius: 3px;
-        }
-        
-        .burger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-        
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .burger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-        
+
         /* ========================================
            CONTAINER & SECTIONS
            ======================================== */
@@ -132,17 +113,17 @@
             margin: 0 auto;
             padding: 3rem 2rem;
         }
-        
+
         section {
             margin-bottom: 4rem;
         }
-        
+
         h1 {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
-        
+
         h2 {
             font-size: 2rem;
             color: var(--accent-color);
@@ -150,33 +131,33 @@
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--secondary-color);
         }
-        
+
         h3 {
             font-size: 1.3rem;
             color: var(--primary-color);
             margin-top: 2rem;
             margin-bottom: 1rem;
         }
-        
+
         p {
             margin-bottom: 1rem;
             text-align: justify;
         }
-        
+
         strong {
             font-weight: bold;
             color: var(--accent-color);
         }
-        
+
         ul {
             margin-left: 2rem;
             margin-bottom: 1rem;
         }
-        
+
         li {
             margin-bottom: 0.5rem;
         }
-        
+
         /* ========================================
            IMAGE GALLERY
            ======================================== */
@@ -187,7 +168,7 @@
             margin: 2rem 0 3rem 0;
             flex-wrap: wrap;
         }
-        
+
         .image-gallery img {
             width: 300px;
             height: 400px;
@@ -196,11 +177,11 @@
             object-fit: cover;
             transition: transform 0.3s ease;
         }
-        
+
         .image-gallery img:hover {
             transform: scale(1.05);
         }
-        
+
         /* ========================================
            HERO SECTION
            ======================================== */
@@ -211,31 +192,31 @@
             color: var(--white);
             margin-bottom: 0;
         }
-        
+
         .hero h1 {
             color: var(--white);
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
-        
+
         /* ========================================
            CONTENT BLOCKS
            ======================================== */
         .content-block {
             margin-bottom: 2rem;
         }
-        
+
         .content-block p:last-child {
             margin-bottom: 0;
         }
-        
+
         /* ========================================
            KOSTEN BOX
            ======================================== */
@@ -246,13 +227,13 @@
             text-align: center;
             margin: 2rem 0;
         }
-        
+
         .kosten-box h3 {
             font-size: 2rem;
             color: var(--white);
             margin: 0;
         }
-        
+
         /* ========================================
            HINWEIS BOX
            ======================================== */
@@ -262,11 +243,11 @@
             padding: 1.5rem;
             margin: 2rem 0;
         }
-        
+
         .hinweis-box strong {
             color: var(--accent-color);
         }
-        
+
         /* ========================================
            KONTAKT SECTION
            ======================================== */
@@ -276,21 +257,21 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
         .kontakt a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: bold;
         }
-        
+
         .kontakt a:hover {
             text-decoration: underline;
         }
-        
+
         .kontakt strong {
             color: var(--accent-color);
         }
-        
+
         /* ========================================
            FOOTER
            ======================================== */
@@ -301,88 +282,80 @@
             padding: 2rem;
             margin-top: 4rem;
         }
-        
+
         footer a {
             color: var(--secondary-color);
             text-decoration: none;
             margin: 0 1rem;
         }
-        
+
         footer a:hover {
             text-decoration: underline;
         }
-        
+
         /* ========================================
            RESPONSIVE DESIGN
            ======================================== */
         @media (max-width: 768px) {
-            .burger {
-                display: flex;
-            }
-            
-            nav ul {
+            .logo {
                 display: none;
-                width: 100%;
-                flex-direction: column;
-                gap: 0;
-                margin-top: 1rem;
-                text-align: center;
             }
-            
-            nav ul.active {
-                display: flex;
+
+            nav {
+                justify-content: center;
+                padding: 0.4rem 0.5rem;
             }
-            
-            nav ul li {
-                padding: 0.8rem 0;
-                border-bottom: 1px solid #eee;
+
+            nav ul {
+                gap: 0.6rem;
+                justify-content: center;
             }
-            
-            nav ul li:last-child {
-                border-bottom: none;
+
+            nav a {
+                font-size: 0.85rem;
             }
-            
+
             nav a.active::after {
-                bottom: 0;
+                bottom: -3px;
                 height: 2px;
             }
-            
+
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             h2 {
                 font-size: 1.5rem;
             }
-            
+
             .container {
                 padding: 2rem 1rem;
             }
-            
+
             .image-gallery {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .image-gallery img {
                 width: 280px;
                 height: 373px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .hero {
                 padding: 3rem 1rem;
             }
-            
+
             .hero h1 {
                 font-size: 1.8rem;
             }
-            
+
             .logo {
                 font-size: 1.3rem;
             }
@@ -390,242 +363,223 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <div class="logo">Intuitionsraum</div>
-            <div class="burger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="navMenu">
-                <li><a href="#home" onclick="closeMenu()">Home</a></li>
-                <li><a href="#ueber-mich" onclick="closeMenu()">Über mich</a></li>
-                <li><a href="#begleitungsangebote" onclick="closeMenu()">Begleitungsangebote</a></li>
-                <li><a href="#kosten" onclick="closeMenu()">Kosten</a></li>
-                <li><a href="#hinweise" onclick="closeMenu()">Hinweise</a></li>
-                <li><a href="#kontakt" onclick="closeMenu()">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- Navigation -->
+<header>
+    <nav>
+        <div class="logo">Intuitionsraum</div>
+        <ul id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#ueber-mich">Über mich</a></li>
+            <li><a href="#begleitungsangebote">Angebote</a></li>
+            <li><a href="#kosten">Kosten</a></li>
+            <li><a href="#hinweise">Hinweise</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>Willkommen im Intuitionsraum</h1>
-        <p>Ein Raum, in dem alles wachsen darf, was schon in dir liegt.</p>
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <h1>Willkommen im Intuitionsraum</h1>
+    <p>Ein Raum, in dem alles wachsen darf, was schon in dir liegt.</p>
+</section>
+
+<!-- Main Content -->
+<div class="container">
+    <!-- Willkommen Section -->
+    <section>
+        <p>Manchmal öffnen sich Türen schneller, als eine Website fertig werden kann. Diese Seite ist daher eine Übergangslösung – meine ausführliche Homepage entsteht gerade. Hier findest du eine kurze Orientierung zu mir und meiner Arbeit. Spüre, ob sich eine Begleitung für dich stimmig anfühlt.</p>
+
+        <p>Der Intuitionsraum ist ein Raum, in dem alles wachsen darf, was schon in dir liegt. Ein Ort, an dem du langsamer werden, spüren und entdecken kannst, wer du wirklich bist.</p>
+
+        <p>Meine Begleitung schafft einen Gegenraum – frei von Leistungsdruck, Vergleichen und Erwartungen. Ich begleite dich achtsam, mit Präsenz und Wertschätzung, unterstützt durch kleine Übungen, die deine Selbstwahrnehmung vertiefen.</p>
     </section>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Willkommen Section -->
-        <section>
-            <p>Manchmal öffnen sich Türen schneller, als eine Website fertig werden kann. Diese Seite ist daher eine Übergangslösung – meine ausführliche Homepage entsteht gerade. Hier findest du eine kurze Orientierung zu mir und meiner Arbeit. Spüre, ob sich eine Begleitung für dich stimmig anfühlt.</p>
-            
-            <p>Der Intuitionsraum ist ein Raum, in dem alles wachsen darf, was schon in dir liegt. Ein Ort, an dem du langsamer werden, spüren und entdecken kannst, wer du wirklich bist.</p>
-            
-            <p>Meine Begleitung schafft einen Gegenraum – frei von Leistungsdruck, Vergleichen und Erwartungen. Ich begleite dich achtsam, mit Präsenz und Wertschätzung, unterstützt durch kleine Übungen, die deine Selbstwahrnehmung vertiefen.</p>
-        </section>
+    <!-- Über mich Section -->
+    <section id="ueber-mich">
+        <h2>Über mich</h2>
 
-        <!-- Über mich Section -->
-        <section id="ueber-mich">
-            <h2>Über mich</h2>
-            
-            <!-- Image Gallery - Ersetzen Sie die Dateinamen mit Ihren tatsächlichen Bildnamen -->
-            <div class="image-gallery">
-                <img src="louisa-breyer-autumn.jpeg" alt="Louisa Breyer Herbst">
-            </div>
-            
-            <div class="content-block">
-                <p>Ich bin Louisa, Jahrgang 1986, aufgewachsen in einem Dorf bei Mainz in einem Mehrgenerationenhaushalt, in dem meine (Groß-)Familie einen handwerklichen Betrieb führte. Schon früh habe ich Verantwortung, Zusammenhalt und Bodenständigkeit erfahren – gleichzeitig lernte ich meine Lebensaufgabe kennen: die Balance zwischen Fürsorge für andere und Selbstfürsorge für mich.</p>
+        <!-- Image Gallery - Ersetzen Sie die Dateinamen mit Ihren tatsächlichen Bildnamen -->
+        <div class="image-gallery">
+            <img src="louisa-breyer-autumn.jpeg" alt="Louisa Breyer Herbst">
+        </div>
 
-                <p>Nach dem Abitur absolvierte ich zunächst eine kaufmännische Ausbildung und begann 2009 das Psychologie-Studium in Trier. Seit über einem Jahrzehnt begleite ich hier Menschen psychosozial – mit und ohne Diagnosen – alle mit dem Wunsch, wieder Kontakt zu sich selbst zu finden.</p>
+        <div class="content-block">
+            <p>Ich bin Louisa, Jahrgang 1986, aufgewachsen in einem Dorf bei Mainz in einem Mehrgenerationenhaushalt, in dem meine (Groß-)Familie einen handwerklichen Betrieb führte. Schon früh habe ich Verantwortung, Zusammenhalt und Bodenständigkeit erfahren – gleichzeitig lernte ich meine Lebensaufgabe kennen: die Balance zwischen Fürsorge für andere und Selbstfürsorge für mich.</p>
 
-                <p>Die Natur ist für mich ein Kraft- und Reflexionsort – am Wasser, auf stillen Waldwegen oder von erhöhten Orten mit Blick in die Ferne finde ich Ruhe, Klarheit und Verbundenheit.</p>
+            <p>Nach dem Abitur absolvierte ich zunächst eine kaufmännische Ausbildung und begann 2009 das Psychologie-Studium in Trier. Seit über einem Jahrzehnt begleite ich hier Menschen psychosozial – mit und ohne Diagnosen – alle mit dem Wunsch, wieder Kontakt zu sich selbst zu finden.</p>
 
-                <p>Für mich gehören alle Gefühle zum Menschsein: Freude, Wut, Sehnsucht, Hoffnung oder auch Neid – alles darf da sein. In meiner Begleitung schaffe ich einen Gegenraum zum oft leistungsgeprägten Alltag: achtsam, wertschätzend und präsent. Hier können Menschen ihre Intuition spüren, Selbstfreundschaft entwickeln und ihren eigenen Weg gestalten.</p>
+            <p>Die Natur ist für mich ein Kraft- und Reflexionsort – am Wasser, auf stillen Waldwegen oder von erhöhten Orten mit Blick in die Ferne finde ich Ruhe, Klarheit und Verbundenheit.</p>
 
-                <p>Meine Arbeit im Intuitionsraum basiert auf einer fundierten psychologischen Ausbildung und langjährigen Weiterbildungen in humanistischen Ansätzen. Diese Vielfalt bildet den Hintergrund meiner Haltung – nicht als starres Konzept, sondern als lebendige Grundlage für eine präsente, achtsame Begleitung.</p>
-            </div>
-            
-            <h3>Langjährige Aus- und Weiterbildungen</h3>
+            <p>Für mich gehören alle Gefühle zum Menschsein: Freude, Wut, Sehnsucht, Hoffnung oder auch Neid – alles darf da sein. In meiner Begleitung schaffe ich einen Gegenraum zum oft leistungsgeprägten Alltag: achtsam, wertschätzend und präsent. Hier können Menschen ihre Intuition spüren, Selbstfreundschaft entwickeln und ihren eigenen Weg gestalten.</p>
+
+            <p>Meine Arbeit im Intuitionsraum basiert auf einer fundierten psychologischen Ausbildung und langjährigen Weiterbildungen in humanistischen Ansätzen. Diese Vielfalt bildet den Hintergrund meiner Haltung – nicht als starres Konzept, sondern als lebendige Grundlage für eine präsente, achtsame Begleitung.</p>
+        </div>
+
+        <h3>Langjährige Aus- und Weiterbildungen</h3>
+        <ul>
+            <li>2009-2014: Bachelor of Science in Psychologie, Universität Trier</li>
+            <li>2016-2018: Personzentrierte Körperpsychotherapie, Gesellschaft für Personzentrierte Psychotherapie (GwG)</li>
+            <li>2019-2024: Analytische Gestalttherapie, Bonner Institut für Analytische Gestalttherapie</li>
+        </ul>
+
+        <p>Seit 2011 besuche ich regelmäßig Kurzfortbildungen, die meine Arbeit vertiefen und erweitern. Sie fließen kreativ und situativ in meine Begleitung ein – immer orientiert am Menschen, der mir gegenübersitzt, nicht an einem festen Methodenkatalog.</p>
+
+        <h3>Auszug meiner Kurzfortbildungen:</h3>
+        <ul>
+            <li>2025: Basiskurs 1 & 2 Geistiges & Spirituelles Heilen, Isabell Götz</li>
+            <li>2024: Gestalt und Stille, Bonner Institut für Analytische Gestalttherapie</li>
+            <li>2017: Mit der Natur wachsen – Natur- und Selbsterleben im therapeutischen und beraterischen Kontext – GwG</li>
+            <li>2016: Ressourcenorientierte Personzentrierte Paarberatung – GwG</li>
+            <li>2016: Trauma – Lydia Weyerhäuser</li>
+            <li>2014: Kunsttherapeutische Begleitung</li>
+            <li>fortlaufend: zahlreiche systemische Aufstellungen nach verschiedenen Theorien (u.a. dynamische Seelenaufstellung, Dr. Victor Chu, Dr. Franz Ruppert)</li>
+        </ul>
+
+        <p>Ich nehme weiterhin regelmäßig an kollegialem Austausch und fachlicher Supervision teil, damit meine Fachkompetenz fortführend hinterfragt und fachlich eingenordet wird.</p>
+
+        <p><strong>Anmerkung: Ich arbeite nicht als Psychotherapeutin. Meine Weiterbildungen sind bewusst tiefgehend, damit ich aufkommende Themen sensibel erkennen und einordnen kann. Eine therapeutische Bearbeitung in dieser Tiefe gehört nicht zu meinem Angebot. Bei Bedarf verweise ich an qualifizierte Fachpersonen, die auf diesem Gebiet tätig sind.</strong></p>
+    </section>
+
+    <!-- Begleitungsangebote Section -->
+    <section id="begleitungsangebote">
+        <h2>Themen, die wir gemeinsam erkunden können</h2>
+
+        <p>In meiner Begleitung kannst du Selbstfreundschaft entwickeln, dich liebevoll und geduldig deinem Erleben zuwenden. Du stärkst deine Intuition und lernst, wieder klar zu spüren, was dich trägt und welche Entscheidungen deinem inneren Weg entsprechen. Gleichzeitig lernst du, deinen eigenen Weg bewusst zu gestalten, kleine Veränderungen wahrzunehmen und Schritt für Schritt Verantwortung für dein Leben zu übernehmen.</p>
+
+        <h3>1. Innere Führung: Übergänge & Entscheidungen</h3>
+        <ul>
+            <li>Du steckst in einer neuen Lebensphase und schwankst zwischen äußeren Erwartungen, Unsicherheit und deinem eigenen inneren Weg.</li>
+            <li>Du stehst vor Entscheidungen, die Mut und Selbstvertrauen erfordern und wünschst dir Unterstützung, um deiner inneren Stimme mehr zu vertrauen.</li>
+            <li>Du möchtest Übergänge bewusst gestalten und Abschiede achtsam erleben.</li>
+            <li>Du erlebst große Lebensveränderungen – z. B Schwangerschaft, Trennung, Umzug oder andere einschneidende Übergänge und wünschst dir eine präsente Begleitung, die zuhört, Raum hält und dich stärkt, ohne dir Lösungen vorzugeben oder Erwartungen aufzudrängen.</li>
+        </ul>
+
+        <h3>2. Selbstfreundschaft: Selbstwahrnehmung & innere Arbeit</h3>
+        <ul>
+            <li>Du möchtest lernen, freundlicher mit dir selbst umzugehen, Selbstkritik wahrzunehmen und deine Bedürfnisse ernster zu nehmen.</li>
+            <li>Du bist neugierig, dich selbst auf neue Weise kennenzulernen – über Gefühle, Körperempfindungen und innere Werte.</li>
+            <li>Du wünschst dir Begleitung beim bewussten Spüren deiner Gefühle, um innere Klarheit und Orientierung zu entwickeln.</li>
+            <li>Du möchtest lernen, mit Ambivalenz, innerem Druck oder Unsicherheit umzugehen, ohne dich dabei selbst zu verlieren.</li>
+            <li>Du wünschst Begleitung, deine Gefühle bewusst wahrzunehmen, Abschied zu nehmen oder auch Übergänge sanft zu gestalten.</li>
+        </ul>
+
+        <h3>3. Träume & innere Botschaften</h3>
+        <ul>
+            <li>Du bist neugierig, spielerisch den Bedeutungsinhalt deiner Träume zu erkunden und daraus Impulse für deinen eigenen Weg zu gewinnen.</li>
+            <li>Du möchtest lernen, Träume als Werkzeug für Selbstfreundschaft, Intuition und bewusste Selbstentwicklung zu nutzen – ohne Leistungsdruck, sondern mit Neugier und Offenheit.</li>
+        </ul>
+
+        <h3>4. Gruppenangebote</h3>
+        <p>In unregelmäßigen Zeitfenstern biete ich Gruppenangebote zu den Themen Intuition, Selbstfreundschaft und innere Führung an. Die Termine entstehen achtsam und orientieren sich am jeweiligen Thema und an der Gruppendynamik. Bei Interesse spreche mich gerne darauf an.</p>
+    </section>
+
+    <!-- Kosten Section -->
+    <section id="kosten">
+        <h2>Kosten</h2>
+        <div class="kosten-box">
+            <h3>Kostenloses Kennlerngespräch</h3>
+        </div>
+
+        <div class="content-block">
+            <p><strong>Kostenloses Kennenlerngespräch</strong></p>
             <ul>
-                <li>2009-2014: Bachelor of Science in Psychologie, Universität Trier</li>
-                <li>2016-2018: Personzentrierte Körperpsychotherapie, Gesellschaft für Personzentrierte Psychotherapie (GwG)</li>
-                <li>2019-2024: Analytische Gestalttherapie, Bonner Institut für Analytische Gestalttherapie</li>
+                <li>20 Minuten, telefonisch oder persönlich</li>
+                <li>Zum gegenseitigen Kennenlernen und um zu schauen, ob meine Begleitung für dich passend ist</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <p><strong>Begleitung</strong></p>
+            <ul>
+                <li>100 € für 60 Minuten</li>
+                <li>jede weiteren 15 Minuten: 25 €, sofern eine Verlängerung abgesprochen und inhaltlich stimmig ist</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <p><strong>Ausfallhonorar:</strong></p>
+            <ul>
+                <li>Termine, die nicht eingehalten werden können, bitte mindestens 24 Stunden vorher absagen.</li>
+                <li>Bei späteren Absagen oder Nichterscheinen wird ein Ausfallhonorar von 65% der gebuchten Zeit fällig.</li>
+                <li>Dieses Honorar dient dazu, die gemeinsame Zeit, den Raum und die Aufmerksamkeit, die für dich reserviert wurden, zu würdigen.</li>
+                <li>So kann ich sicherstellen, dass alle Termine achtsam, präsent und verlässlich stattfinden.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Wichtige Hinweise Section -->
+    <section id="hinweise">
+        <h2>Wichtige Hinweise</h2>
+        <div class="hinweis-box">
+            <p><strong>Meine Begleitung ersetzt keine ärztliche, psychiatrische oder psychotherapeutische Behandlung.</strong></p>
+            <p>Meine Begleitung hat einen unterstützenden, stabilisierenden und wohltuenden Charakter. Sie kann neue Perspektiven eröffnen und zur Selbstwahrnehmung beitragen. Eine Abrechnung mit Krankenkassen ist nicht möglich.</p>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <div class="kontakt">
+            <p><strong>Louisa Breyer - Intuitionsraum</strong></p>
+            <p>Am Fruchtmarkt 2, 54439 Saarburg</p>
+            <p>E-Mail: <a href="mailto:hallo@Intuitionsraum.online">hallo@Intuitionsraum.online</a></p>
+            <p>Telefon: 06501/9879090</p>
+
+            <p>Meine Begleitung findet im Intuitionsraum in der Praxis am Markt von Catharine Buck in Saarburg statt. Bitte erscheine nur zu den vereinbarten festen Terminen, um den Ablauf für dich und andere nicht zu stören.</p>
+
+            <p><strong>Zugang & Erreichbarkeit</strong></p>
+            <ul>
+                <li>Die Praxis befindet sich am Fruchtmarkt 2 in Saarburg, innerhalb der Praxis von Catharine Buck, psychologische Psychotherapeutin.</li>
+                <li>Parkplätze sind direkt vor der Tür und auch in der näheren Umgebung verfügbar. Der Bahnhof ist fußläufig 10–15 Minuten entfernt.</li>
+                <li>Die Räumlichkeiten sind nicht barrierefrei: Nach dem Fahrstuhl bis zum Intuitionsraum müssen noch 18 Stufen ohne Aufzug überwunden werden.</li>
+                <li>Im 2. Stock stehen Bänke als Wartebereich bereit – bitte nicht klingeln, um laufende Termine nicht zu stören.</li>
             </ul>
 
-            <p>Seit 2011 besuche ich regelmäßig Kurzfortbildungen, die meine Arbeit vertiefen und erweitern. Sie fließen kreativ und situativ in meine Begleitung ein – immer orientiert am Menschen, der mir gegenübersitzt, nicht an einem festen Methodenkatalog.</p>
-
-            <h3>Auszug meiner Kurzfortbildungen:</h3>
+            <p><strong>Umfeld</strong></p>
             <ul>
-                <li>2025: Basiskurs 1 & 2 Geistiges & Spirituelles Heilen, Isabell Götz</li>
-                <li>2024: Gestalt und Stille, Bonner Institut für Analytische Gestalttherapie</li>
-                <li>2017: Mit der Natur wachsen – Natur- und Selbsterleben im therapeutischen und beraterischen Kontext – GwG</li>
-                <li>2016: Ressourcenorientierte Personzentrierte Paarberatung – GwG</li>
-                <li>2016: Trauma – Lydia Weyerhäuser</li>
-                <li>2014: Kunsttherapeutische Begleitung</li>
-                <li>fortlaufend: zahlreiche systemische Aufstellungen nach verschiedenen Theorien (u.a. dynamische Seelenaufstellung, Dr. Victor Chu, Dr. Franz Ruppert)</li>
+                <li>Auf der Etage des Wartebereichs, befindet sich eine neurologische/psychiatrische Praxis.</li>
             </ul>
 
-            <p>Ich nehme weiterhin regelmäßig an kollegialem Austausch und fachlicher Supervision teil, damit meine Fachkompetenz fortführend hinterfragt und fachlich eingenordet wird.</p>
+            <p>Mein Angebot richtet sich an Menschen aus Saarburg und Umgebung – inklusive Konz, Zerf, Nittel, Trassem, Serrig, Trier, Mettlach, Losheim am See sowie der Grenzregion Luxemburg mit Grevenmacher, Wasserbillig, Mertert.</p>
 
-            <p><strong>Anmerkung: Ich arbeite nicht als Psychotherapeutin. Meine Weiterbildungen sind bewusst tiefgehend, damit ich aufkommende Themen sensibel erkennen und einordnen kann. Eine therapeutische Bearbeitung in dieser Tiefe gehört nicht zu meinem Angebot. Bei Bedarf verweise ich an qualifizierte Fachpersonen, die auf diesem Gebiet tätig sind.</strong></p>
-        </section>
+            <p><strong>Der Intuitionsraum befindet sich noch im Aufbau. Erste Termine können bereits ab Februar 2026 stattfinden.</strong></p>
+        </div>
+    </section>
+</div>
 
-        <!-- Begleitungsangebote Section -->
-        <section id="begleitungsangebote">
-            <h2>Themen, die wir gemeinsam erkunden können</h2>
-            
-            <p>In meiner Begleitung kannst du Selbstfreundschaft entwickeln, dich liebevoll und geduldig deinem Erleben zuwenden. Du stärkst deine Intuition und lernst, wieder klar zu spüren, was dich trägt und welche Entscheidungen deinem inneren Weg entsprechen. Gleichzeitig lernst du, deinen eigenen Weg bewusst zu gestalten, kleine Veränderungen wahrzunehmen und Schritt für Schritt Verantwortung für dein Leben zu übernehmen.</p>
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 Intuitionsraum - Louisa Breyer</p>
+    <p>
+        <a href="impressum.html">Impressum</a> |
+        <a href="datenschutz.html">Datenschutz</a>
+    </p>
+</footer>
 
-            <h3>1. Innere Führung: Übergänge & Entscheidungen</h3>
-            <ul>
-                <li>Du steckst in einer neuen Lebensphase und schwankst zwischen äußeren Erwartungen, Unsicherheit und deinem eigenen inneren Weg.</li>
-                <li>Du stehst vor Entscheidungen, die Mut und Selbstvertrauen erfordern und wünschst dir Unterstützung, um deiner inneren Stimme mehr zu vertrauen.</li>
-                <li>Du möchtest Übergänge bewusst gestalten und Abschiede achtsam erleben.</li>
-                <li>Du erlebst große Lebensveränderungen – z. B Schwangerschaft, Trennung, Umzug oder andere einschneidende Übergänge und wünschst dir eine präsente Begleitung, die zuhört, Raum hält und dich stärkt, ohne dir Lösungen vorzugeben oder Erwartungen aufzudrängen.</li>
-            </ul>
+<script>
+    // Scroll Spy - highlight active section in menu
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
-            <h3>2. Selbstfreundschaft: Selbstwahrnehmung & innere Arbeit</h3>
-            <ul>
-                <li>Du möchtest lernen, freundlicher mit dir selbst umzugehen, Selbstkritik wahrzunehmen und deine Bedürfnisse ernster zu nehmen.</li>
-                <li>Du bist neugierig, dich selbst auf neue Weise kennenzulernen – über Gefühle, Körperempfindungen und innere Werte.</li>
-                <li>Du wünschst dir Begleitung beim bewussten Spüren deiner Gefühle, um innere Klarheit und Orientierung zu entwickeln.</li>
-                <li>Du möchtest lernen, mit Ambivalenz, innerem Druck oder Unsicherheit umzugehen, ohne dich dabei selbst zu verlieren.</li>
-                <li>Du wünschst Begleitung, deine Gefühle bewusst wahrzunehmen, Abschied zu nehmen oder auch Übergänge sanft zu gestalten.</li>
-            </ul>
+        let current = '';
 
-            <h3>3. Träume & innere Botschaften</h3>
-            <ul>
-                <li>Du bist neugierig, spielerisch den Bedeutungsinhalt deiner Träume zu erkunden und daraus Impulse für deinen eigenen Weg zu gewinnen.</li>
-                <li>Du möchtest lernen, Träume als Werkzeug für Selbstfreundschaft, Intuition und bewusste Selbstentwicklung zu nutzen – ohne Leistungsdruck, sondern mit Neugier und Offenheit.</li>
-            </ul>
-
-            <h3>4. Gruppenangebote</h3>
-            <p>In unregelmäßigen Zeitfenstern biete ich Gruppenangebote zu den Themen Intuition, Selbstfreundschaft und innere Führung an. Die Termine entstehen achtsam und orientieren sich am jeweiligen Thema und an der Gruppendynamik. Bei Interesse spreche mich gerne darauf an.</p>
-        </section>
-
-        <!-- Kosten Section -->
-        <section id="kosten">
-            <h2>Kosten</h2>
-            <div class="kosten-box">
-                <h3>Kostenloses Kennlerngespräch</h3>
-            </div>
-            
-            <div class="content-block">
-                <p><strong>Kostenloses Kennenlerngespräch</strong></p>
-                <ul>
-                    <li>20 Minuten, telefonisch oder persönlich</li>
-                    <li>Zum gegenseitigen Kennenlernen und um zu schauen, ob meine Begleitung für dich passend ist</li>
-                </ul>
-            </div>
-
-            <div class="content-block">
-                <p><strong>Begleitung</strong></p>
-                <ul>
-                    <li>100 € für 60 Minuten</li>
-                    <li>jede weiteren 15 Minuten: 25 €, sofern eine Verlängerung abgesprochen und inhaltlich stimmig ist</li>
-                </ul>
-            </div>
-
-            <div class="content-block">
-                <p><strong>Ausfallhonorar:</strong></p>
-                <ul>
-                    <li>Termine, die nicht eingehalten werden können, bitte mindestens 24 Stunden vorher absagen.</li>
-                    <li>Bei späteren Absagen oder Nichterscheinen wird ein Ausfallhonorar von 65% der gebuchten Zeit fällig.</li>
-                    <li>Dieses Honorar dient dazu, die gemeinsame Zeit, den Raum und die Aufmerksamkeit, die für dich reserviert wurden, zu würdigen.</li>
-                    <li>So kann ich sicherstellen, dass alle Termine achtsam, präsent und verlässlich stattfinden.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Wichtige Hinweise Section -->
-        <section id="hinweise">
-            <h2>Wichtige Hinweise</h2>
-            <div class="hinweis-box">
-                <p><strong>Meine Begleitung ersetzt keine ärztliche, psychiatrische oder psychotherapeutische Behandlung.</strong></p>
-                <p>Meine Begleitung hat einen unterstützenden, stabilisierenden und wohltuenden Charakter. Sie kann neue Perspektiven eröffnen und zur Selbstwahrnehmung beitragen. Eine Abrechnung mit Krankenkassen ist nicht möglich.</p>
-            </div>
-        </section>
-
-        <!-- Kontakt Section -->
-        <section id="kontakt">
-            <h2>Kontakt</h2>
-            <div class="kontakt">
-                <p><strong>Louisa Breyer - Intuitionsraum</strong></p>
-                <p>Am Fruchtmarkt 2, 54439 Saarburg</p>
-                <p>E-Mail: <a href="mailto:hallo@Intuitionsraum.online">hallo@Intuitionsraum.online</a></p>
-                <p>Telefon: 06501/9879090</p>
-
-                <p>Meine Begleitung findet im Intuitionsraum in der Praxis am Markt von Catharine Buck in Saarburg statt. Bitte erscheine nur zu den vereinbarten festen Terminen, um den Ablauf für dich und andere nicht zu stören.</p>
-                
-                <p><strong>Zugang & Erreichbarkeit</strong></p>
-                <ul>
-                    <li>Die Praxis befindet sich am Fruchtmarkt 2 in Saarburg, innerhalb der Praxis von Catharine Buck, psychologische Psychotherapeutin.</li>
-                    <li>Parkplätze sind direkt vor der Tür und auch in der näheren Umgebung verfügbar. Der Bahnhof ist fußläufig 10–15 Minuten entfernt.</li>
-                    <li>Die Räumlichkeiten sind nicht barrierefrei: Nach dem Fahrstuhl bis zum Intuitionsraum müssen noch 18 Stufen ohne Aufzug überwunden werden.</li>
-                    <li>Im 2. Stock stehen Bänke als Wartebereich bereit – bitte nicht klingeln, um laufende Termine nicht zu stören.</li>
-                </ul>
-
-                <p><strong>Umfeld</strong></p>
-                <ul>
-                    <li>Auf der Etage des Wartebereichs, befindet sich eine neurologische/psychiatrische Praxis.</li>
-                </ul>
-
-                <p>Mein Angebot richtet sich an Menschen aus Saarburg und Umgebung – inklusive Konz, Zerf, Nittel, Trassem, Serrig, Trier, Mettlach, Losheim am See sowie der Grenzregion Luxemburg mit Grevenmacher, Wasserbillig, Mertert.</p>
-
-                <p><strong>Der Intuitionsraum befindet sich noch im Aufbau. Erste Termine können bereits ab Februar 2026 stattfinden.</strong></p>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Intuitionsraum - Louisa Breyer</p>
-        <p>
-            <a href="impressum.html">Impressum</a> | 
-            <a href="datenschutz.html">Datenschutz</a>
-        </p>
-    </footer>
-    
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('navMenu');
-            const burger = document.querySelector('.burger');
-            menu.classList.toggle('active');
-            burger.classList.toggle('active');
-        }
-        
-        function closeMenu() {
-            const menu = document.getElementById('navMenu');
-            const burger = document.querySelector('.burger');
-            menu.classList.remove('active');
-            burger.classList.remove('active');
-        }
-        
-        // Scroll Spy - highlight active section in menu
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
         });
-    </script>
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>

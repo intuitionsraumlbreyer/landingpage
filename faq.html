@@ -8,8 +8,8 @@
 </head>
 <body>
 <header><nav>
-<a href="start.html" class="logo"><img src="logo.png" alt="Intuitionsraum"></a>
-<ul><li><a href="start.html">Home</a></li><li><a href="ueber-mich.html">Über mich</a></li><li><a href="angebote.html">Angebote</a></li><li><a href="faq.html" class="active">FAQ</a></li><li><a href="kosten.html">Kosten</a></li><li><a href="kontakt.html">Kontakt</a></li><li><a href="co-kreativ.html">Co-Kreativ</a></li></ul>
+<a href="index.html" class="logo"><img src="images/logo.png" alt="Intuitionsraum"></a>
+<ul><li><a href="index.html">Home</a></li><li class="has-dropdown"><a href="ueber-mich.html">&#220;ber mich</a><ul class="dropdown"><li><a href="ueber-mich.html">&#220;ber mich</a></li><li><a href="naehkaestchen.html">Aus dem N&auml;hk&auml;stchen</a></li></ul></li><li><a href="angebote.html">Angebote</a></li><li><a href="faq.html" class="active">FAQ</a></li><li><a href="kosten.html">Kosten</a></li><li><a href="kontakt.html">Kontakt</a></li><li><a href="co-kreativ.html">Co-Kreation</a></li></ul>
 </nav></header>
 
 <div class="subhero">
@@ -191,7 +191,7 @@
 </div>
 
 <footer>
-<p>&copy; 2026 Intuitionsraum &ndash; Louisa Breyer</p>
+<p>&copy; <span class="copyright-year">2026</span> Intuitionsraum &ndash; Louisa Breyer</p>
 <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
 </footer>
 
@@ -213,5 +213,6 @@ document.querySelectorAll('.faq-frage').forEach(function(btn) {
     });
 });
 </script>
+<script src="shared.js"></script>
 </body>
 </html>

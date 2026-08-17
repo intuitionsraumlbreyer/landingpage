@@ -244,6 +244,24 @@ li { margin-bottom: 0.5rem; }
 .hinweis-box strong { color: var(--accent-color); }
 
 /* ----------------------------------------
+   Kennenlern-Box (CTA)
+   ---------------------------------------- */
+.cta-box {
+    background-color: #f5f0ea;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    margin: 2.5rem 0;
+    text-align: center;
+}
+
+.cta-box h2 { margin-top: 0; border-bottom: none; }
+.cta-box p { margin-bottom: 0.75rem; }
+.cta-box p:last-child { margin-bottom: 0; }
+.cta-box a { color: var(--primary-color); font-weight: bold; text-decoration: none; }
+.cta-box a:hover { text-decoration: underline; }
+
+/* ----------------------------------------
    Kontakt-Block
    ---------------------------------------- */
 .kontakt {
@@ -501,17 +519,16 @@ a.teaser-karte {
    ---------------------------------------- */
 .ueber-mich-preview {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 160px 1fr;
     gap: 2rem;
     align-items: start;
 }
 
 .ueber-mich-preview img {
     width: 100%;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    object-fit: cover;
-    aspect-ratio: 3 / 4;
 }
 
 /* ----------------------------------------
@@ -546,7 +563,7 @@ footer a:hover { text-decoration: underline; }
     .teaser-grid { grid-template-columns: 1fr; }
     .teaser-karte.voll { grid-column: span 1; }
     .ueber-mich-preview { grid-template-columns: 1fr; }
-    .ueber-mich-preview img { width: 100%; max-width: 280px; margin: 0 auto; display: block; aspect-ratio: 3 / 4; }
+    .ueber-mich-preview img { width: 100%; max-width: 180px; height: auto; margin: 0 auto; display: block; }
 }
 
 @media (max-width: 480px) {

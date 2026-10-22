@@ -564,6 +564,7 @@ footer a:hover { text-decoration: underline; }
     .teaser-karte.voll { grid-column: span 1; }
     .ueber-mich-preview { grid-template-columns: 1fr; }
     .ueber-mich-preview img { width: 100%; max-width: 180px; height: auto; margin: 0 auto; display: block; }
+    footer a { margin: 0 0.4rem; }
 }
 
 @media (max-width: 480px) {

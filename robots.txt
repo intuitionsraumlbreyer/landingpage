@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://intuitionsraum.online/sitemap.xml
